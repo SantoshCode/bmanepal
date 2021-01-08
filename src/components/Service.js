@@ -23,12 +23,12 @@ const useStyles = makeStyles(theme => ({
 			margin: '0 2em',
 		},
 		[theme.breakpoints.down('sm')]: {
-			marginTop: '7em',
+			marginTop: '2em',
 			marginLeft: '2em',
 			marginRight: '2em',
 		},
 		[theme.breakpoints.down('xs')]: {
-			marginTop: '10em',
+			marginTop: '2em',
 		},
 	},
 	serviceImage: {

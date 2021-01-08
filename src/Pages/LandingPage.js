@@ -12,11 +12,15 @@ import audit from '../assets/audit.svg'
 import market from '../assets/market.svg'
 import sales from '../assets/sales.svg'
 import tax from '../assets/tax.svg'
+import Drawing from '../assets/drawing.js'
+import Drawing2 from '../assets/drawing2.js'
+
 import CustomButton from '../components/CustomButton'
 import Service from '../components/Service'
 import HighLight from '../components/HighLight'
 import Announcement from '../components/Announcement'
 import Calender from '../components/Calender'
+import { useMediaQuery } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
 	hero: {
@@ -58,14 +62,28 @@ const useStyles = makeStyles(theme => ({
 	wave: {
 		position: 'absolute',
 		top: 0,
+		right: 0,
 		margin: 0,
 		padding: 0,
-		background: theme.palette.common.blue,
-		opacity: 0.07,
-		width: '100%',
-		height: '870px',
+		opacity: 0.7,
+		zIndex: -1,
+		[theme.breakpoints.down('md')]: {
+			opacity: 0.3,
+		},
+	},
+	wave2: {
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		margin: 0,
+		padding: 0,
+		opacity: 0.7,
+		[theme.breakpoints.down('md')]: {
+			opacity: 0.3,
+		},
 		zIndex: -1,
 	},
+
 	curve: {
 		position: 'absolute',
 		bottom: 0,
@@ -78,7 +96,7 @@ const useStyles = makeStyles(theme => ({
 		marginBottom: '10em',
 	},
 	heroItems2: {
-		marginBottom: '6em',
+		marginBottom: '5em',
 		[theme.breakpoints.down('sm')]: {
 			marginBottom: '0em',
 		},
@@ -129,21 +147,47 @@ const useStyles = makeStyles(theme => ({
 export default function LandingPage() {
 	const classes = useStyles()
 	const theme = useTheme()
+	const lgMatches = useMediaQuery(theme.breakpoints.only('lg'))
+	const mdMatches = useMediaQuery(theme.breakpoints.only('md'))
+	const smMatches = useMediaQuery(theme.breakpoints.only('sm'))
+	const xsMatches = useMediaQuery(theme.breakpoints.down('xs'))
+
+	const bgWidth = lgMatches
+		? '830mm'
+		: mdMatches
+		? '610mm'
+		: smMatches
+		? '495mm'
+		: '1000mm'
+	const bgHeight = lgMatches
+		? '650mm'
+		: mdMatches
+		? '520mm'
+		: smMatches
+		? '480mm'
+		: '744mm'
+
+	const smWidth = lgMatches
+		? '180mm'
+		: mdMatches
+		? '150mm'
+		: smMatches
+		? '120mm'
+		: '210mm'
+	const smHeight = lgMatches
+		? '267mm'
+		: mdMatches
+		? '237mm'
+		: smMatches
+		? '207mm'
+		: '297mm'
+
 	return (
 		<>
 			<section className={classes.wave}>
-				<svg
-					className={classes.curve}
-					data-name="Layer 1"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 1416.99 174.01"
-				>
-					<path
-						className="cls-1"
-						d="M0,280.8S283.66,59,608.94,163.56s437.93,150.57,808,10.34V309.54H0V280.8Z"
-						transform="translate(0-135.53)"
-					/>
-				</svg>
+				{xsMatches ? null : (
+					<Drawing width={bgWidth} height={bgHeight} />
+				)}
 			</section>
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
 			<Grid
@@ -160,6 +204,16 @@ export default function LandingPage() {
 					>
 						<Grid sm item className={classes.heroTextContainer}>
 							<Grid container direction="column">
+								<section className={classes.wave2}>
+									{/* <img src={drawing2} alt="curve" /> */}
+
+									{xsMatches ? null : (
+										<Drawing2
+											width={smWidth}
+											height={smHeight}
+										/>
+									)}
+								</section>
 								<Typography variant="h2" align="center">
 									Business Management <br />
 									Consultant

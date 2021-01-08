@@ -23,9 +23,12 @@ import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles(theme => ({
 	appbar: {
-		borderBottom: '1px solid #e3e3e3;',
+		// borderBottom: '1px solid #e3e3e3;',
+		// background: theme.palette.common.blue,
+		// opacity: 0.07,
 		padding: '10px calc(50% - 640px)',
 		zIndex: theme.zIndex.modal + 1,
+		background: 'transparent',
 	},
 	logo: {
 		height: '3em',
@@ -197,6 +200,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 				variant="text"
 				className={classes.button2}
 				onClick={() => setValue(4)}
+				style={{ color: '#333' }}
 			>
 				Sign In
 			</Button>
@@ -205,6 +209,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 				to="/start"
 				onClick={() => setValue(5)}
 				text="Get Started"
+				variant="contained"
 			/>
 		</React.Fragment>
 	)
@@ -293,7 +298,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	return (
 		<React.Fragment>
 			<AppBar
-				position="fixed"
+				position="static"
 				color="secondary"
 				className={classes.appbar}
 				elevation={0}
