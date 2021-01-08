@@ -39,7 +39,14 @@ export default createMuiTheme({
 			fontWeight: 700,
 			fontSize: '2.5rem',
 			color: bBlue,
-			lineHeight: 1.5,
+			// lineHeight: 1.5,
+		},
+		h3: {
+			fontFamily: 'Pacifico',
+			// fontWeight: 700,
+			fontSize: '2.1rem',
+			color: bBlue,
+			// lineHeight: 1.5,
 		},
 		subtitle1: {
 			fontFamily: 'Raleway',
@@ -47,6 +54,26 @@ export default createMuiTheme({
 			fontSize: '1rem',
 			color: '#6e6e6e',
 			lineHeight: 1.5,
+		},
+		subtitle2: {
+			fontFamily: 'Raleway',
+			fontWeight: 700,
+			fontSize: '1.4rem',
+			color: '#6e6e6e',
+			opacity: 0.6,
+		},
+		h5: {
+			fontFamily: 'Raleway',
+			fontWeight: 700,
+			fontSize: '1rem',
+			color: '#111',
+			opacity: 0.6,
+		},
+		h6: {
+			fontWeight: 700,
+			fontSize: '0.7rem',
+			color: '#6e6e6e',
+			opacity: 0.6,
 		},
 	},
 })

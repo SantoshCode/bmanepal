@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Button from '@material-ui/core/Button'
 import CustomButton from './CustomButton'
 import { Link } from 'react-router-dom'
@@ -26,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 	appbar: {
 		borderBottom: '1px solid #e3e3e3;',
 		padding: '10px calc(50% - 640px)',
-		// padding: '0 calc(50% - 640px)',
 		zIndex: theme.zIndex.modal + 1,
 	},
 	logo: {
@@ -97,22 +95,10 @@ const useStyles = makeStyles(theme => ({
 			marginBottom: '2em',
 		},
 		[theme.breakpoints.down('xs')]: {
-			marginBottom: '1.25em',
+			marginBottom: '1.3em',
 		},
 	},
 }))
-
-function ElevationScroll(props) {
-	const { children } = props
-	const trigger = useScrollTrigger({
-		disableHysteresis: true,
-		threshold: 0,
-	})
-
-	return React.cloneElement(children, {
-		elevation: trigger ? 4 : 0,
-	})
-}
 
 function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	const theme = useTheme()
@@ -306,42 +292,41 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 
 	return (
 		<React.Fragment>
-			<ElevationScroll>
-				<AppBar
-					position="fixed"
-					color="secondary"
-					className={classes.appbar}
-				>
-					<Toolbar disableGutters>
-						{matches ? (
-							<IconButton
-								className={classes.drawerIconContainer}
-								onClick={() => setOpenDrawer(!openDrawer)}
-								disableRipple
-							>
-								<MenuIcon className={classes.drawerIcon} />
-							</IconButton>
-						) : null}
-						<Button
-							component={Link}
-							to="/"
+			<AppBar
+				position="fixed"
+				color="secondary"
+				className={classes.appbar}
+				elevation={0}
+			>
+				<Toolbar disableGutters>
+					{matches ? (
+						<IconButton
+							className={classes.drawerIconContainer}
+							onClick={() => setOpenDrawer(!openDrawer)}
 							disableRipple
-							onClick={() => setValue(0)}
-							className={classes.logoContainer}
 						>
-							<img
-								src={logo}
-								className={classes.logo}
-								alt="company logo"
-							/>
-							<Typography className={classes.logoName}>
-								bmanepal
-							</Typography>
-						</Button>
-						{matches ? drawer : tabs}
-					</Toolbar>
-				</AppBar>
-			</ElevationScroll>
+							<MenuIcon className={classes.drawerIcon} />
+						</IconButton>
+					) : null}
+					<Button
+						component={Link}
+						to="/"
+						disableRipple
+						onClick={() => setValue(0)}
+						className={classes.logoContainer}
+					>
+						<img
+							src={logo}
+							className={classes.logo}
+							alt="company logo"
+						/>
+						<Typography className={classes.logoName}>
+							bmanepal
+						</Typography>
+					</Button>
+					{matches ? drawer : tabs}
+				</Toolbar>
+			</AppBar>
 			<div className={classes.toolbarMargin} />
 		</React.Fragment>
 	)
