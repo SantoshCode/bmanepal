@@ -17,6 +17,7 @@ import {
 	List,
 	ListItem,
 	ListItemText,
+	useScrollTrigger,
 } from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu'
@@ -28,6 +29,11 @@ const useStyles = makeStyles(theme => ({
 		// opacity: 0.07,
 		padding: '10px calc(50% - 640px)',
 		zIndex: theme.zIndex.modal + 1,
+	},
+	showBar: {
+		background: '',
+	},
+	hideBar: {
 		background: 'transparent',
 	},
 	logo: {
@@ -108,6 +114,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	const classes = useStyles()
 	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 	const matches = useMediaQuery(theme.breakpoints.down('sm'))
+	const trigger = useScrollTrigger({ disableHysteresis: true })
 
 	const [openDrawer, setOpenDrawer] = useState(false)
 	const handleChange = (e, newValue) => {
@@ -298,9 +305,11 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	return (
 		<React.Fragment>
 			<AppBar
-				position="static"
+				position="sticky"
 				color="secondary"
-				className={classes.appbar}
+				className={`${classes.appbar} ${
+					trigger || openDrawer ? classes.showBar : classes.hideBar
+				}`}
 				elevation={0}
 			>
 				<Toolbar disableGutters>

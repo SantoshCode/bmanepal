@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: 50,
 		height: 45,
 		width: 145,
-		backgroundColor: theme.palette.common.blue,
+		background: 'linear-gradient(145deg, #1b8cd8, #1776b6)',
+		boxShadow: '5px 5px 10px #d6d6d6,-5px -5px 10px #ffffff',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.light,
 		},

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -83,7 +85,23 @@ const useStyles = makeStyles(theme => ({
 		},
 		zIndex: -1,
 	},
-
+	// splash: {
+	// 	height: '20em',
+	// 	width: '20em',
+	// 	position: 'absolute',
+	// 	top: 745,
+	// 	// down: 100,
+	// 	// bottom: 1000,
+	// 	// left: 800,
+	// 	margin: 0,
+	// 	padding: 0,
+	// 	opacity: 0.5,
+	// 	transform: 'rotate(-15deg)',
+	// 	zIndex: -1,
+	// 	[theme.breakpoints.down('md')]: {
+	// 		opacity: 0.3,
+	// 	},
+	// },
 	curve: {
 		position: 'absolute',
 		bottom: 0,
@@ -104,19 +122,13 @@ const useStyles = makeStyles(theme => ({
 			marginBottom: '0',
 		},
 	},
-	heroItems3: {
-		marginBottom: '7em',
-		[theme.breakpoints.down('sm')]: {
-			marginBottom: '1em',
-		},
-	},
 	heroItems4: {
 		marginBottom: '6em',
 	},
 	dash: {
 		marginTop: '0.8em',
 		width: '70px',
-		border: `4px solid ${theme.palette.common.blue}`,
+		border: `6px solid ${theme.palette.common.blue}`,
 		borderRadius: 5,
 	},
 	highlight: {
@@ -205,8 +217,6 @@ export default function LandingPage() {
 						<Grid sm item className={classes.heroTextContainer}>
 							<Grid container direction="column">
 								<section className={classes.wave2}>
-									{/* <img src={drawing2} alt="curve" /> */}
-
 									{xsMatches ? null : (
 										<Drawing2
 											width={smWidth}
@@ -239,6 +249,8 @@ export default function LandingPage() {
 								</Grid>
 								<Grid item>
 									<Button
+										component={Link}
+										to="/learn-more"
 										variant="outlined"
 										className={classes.learnBtnHero}
 									>
@@ -272,6 +284,11 @@ export default function LandingPage() {
 								Our Services
 							</Typography>
 						</Grid>
+						{/* <section className={classes.splash}>
+							{xsMatches ? null : (
+								<img src={Splash} alt="splash" />
+							)}
+						</section> */}
 						<Grid item>
 							<Typography variant="h3">What we do</Typography>
 						</Grid>
@@ -281,7 +298,7 @@ export default function LandingPage() {
 					</Grid>
 				</Grid>
 				{/* --------------------------------------------------------------------------------------------------------------------------- */}
-				<Grid item className={classes.heroItems3} sm>
+				<Grid item sm>
 					<Grid container justify="center" direction="row">
 						<Service
 							image={bar}
