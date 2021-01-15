@@ -14,9 +14,18 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		width: 445,
 		maxWidth: 445,
-		boxShadow: '4px 8px 12px 0 rgba(35,31,32,.1)',
+		// boxShadow: '4px 8px 12px 0 rgba(35,31,32,.1)',
+		backgroundColor: 'rgba(255, 255, 255, 0.1);',
+		padding: 20,
+		boxShadow:
+			'0px 1px 3px rgba(0, 0, 0, 0.05), 0px 20px 40px rgba(92, 103, 153, 0.2)',
+		borderRadius: 30,
+		border: '8px solid #fff',
 		transition: 'all .5s',
 		cursor: 'pointer',
+		[theme.breakpoints.down('sm')]: {
+			width: 400,
+		},
 		'&:hover': {
 			transform: 'translateY(-8px)',
 		},

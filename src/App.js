@@ -6,7 +6,9 @@ import theme from './Theme'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LandingPage from './Pages/LandingPage'
-import LearnMore from './Pages/LearnMore'
+import Investor from './Pages/Investor'
+import Startup from './Pages/Startup'
+// import LearnMore from './Pages/LearnMore'
 
 function App() {
 	const [value, setValue] = useState(0)
@@ -23,7 +25,9 @@ function App() {
 				/>
 				<Switch>
 					<Route exact path="/" component={LandingPage} />
-					<Route exact path="/learn-more" component={LearnMore} />
+					{/* <Route exact path="/learn-more" component={LearnMore} /> */}
+					<Route exact path="/investor" component={Investor} />
+					<Route exact path="/startup" component={Startup} />
 					<Route
 						exact
 						path="/start-a-company"

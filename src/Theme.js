@@ -41,6 +41,20 @@ export default createMuiTheme({
 			color: bBlue,
 			// lineHeight: 1.5,
 		},
+		h1: {
+			fontFamily: 'Raleway',
+			fontWeight: 700,
+			fontSize: '2rem',
+			color: '#161e2e',
+			// lineHeight: 1.5,
+		},
+		h4: {
+			fontFamily: 'Raleway',
+			fontWeight: 700,
+			fontSize: '1rem',
+			color: '#161e2e',
+			// lineHeight: 1.5,
+		},
 		h3: {
 			fontFamily: 'Pacifico',
 			// fontWeight: 700,

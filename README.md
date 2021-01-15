@@ -1,3 +1,3 @@
-bmanepal.netlify.com
-bmanepal2.netlify.com
-bmanepal3.netlify.com
+https://www.bmanepal.netlify.com
+https://www.bmanepal2.netlify.com
+https://www.bmanepal3.netlify.com

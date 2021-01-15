@@ -1,26 +1,27 @@
 import React from 'react'
 
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-// import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
-// import Arrow from '../components/Arrow'
+import Arrow from '../components/Arrow'
 
-import Hero1 from '../assets/temp.svg'
-// import bar from '../assets/bar-chart.svg'
-// import audit from '../assets/audit.svg'
-// import market from '../assets/market.svg'
-// import sales from '../assets/sales.svg'
-// import tax from '../assets/tax.svg'
+// import Hero1 from '../assets/temp.svg'
+import bar from '../assets/bar-chart.svg'
+import audit from '../assets/audit.svg'
+import market from '../assets/market.svg'
+import sales from '../assets/sales.svg'
+import tax from '../assets/tax.svg'
+import InvestorHero from '../assets/investor.svg'
 import Drawing from '../assets/drawing.js'
 
 import Drawing2 from '../assets/drawing2.js'
 
-import CustomButton from '../components/CustomButton'
-// import Service from '../components/Service'
+// import CustomButton from '../components/CustomButton'
+import Service from '../components/Service'
 import HighLight from '../components/HighLight'
 import Announcement from '../components/Announcement'
 import Calender from '../components/Calender'
@@ -36,8 +37,8 @@ const useStyles = makeStyles(theme => ({
 		marginTop: '4em',
 		marginLeft: '10%',
 		'&>img': {
-			width: '98%',
-			height: '98%',
+			width: '80%',
+			height: '80%',
 			[theme.breakpoints.down('xs')]: {
 				// margin: 'auto',
 				padding: '0 68px',
@@ -82,10 +83,10 @@ const useStyles = makeStyles(theme => ({
 		right: 0,
 		margin: 0,
 		padding: 0,
-		opacity: 0.7,
+		// opacity: 0.2,
 		zIndex: -1,
 		[theme.breakpoints.down('md')]: {
-			opacity: 0.2,
+			opacity: 0.3,
 		},
 	},
 	wave2: {
@@ -154,28 +155,13 @@ const useStyles = makeStyles(theme => ({
 	},
 }))
 
-export default function LandingPage() {
+export default function Investor() {
 	const classes = useStyles()
 	const theme = useTheme()
 	const lgMatches = useMediaQuery(theme.breakpoints.only('lg'))
 	const mdMatches = useMediaQuery(theme.breakpoints.only('md'))
 	const smMatches = useMediaQuery(theme.breakpoints.only('sm'))
 	const xsMatches = useMediaQuery(theme.breakpoints.down('xs'))
-
-	const bgWidth = lgMatches
-		? '980'
-		: mdMatches
-		? '800'
-		: smMatches
-		? '695'
-		: '1100'
-	const bgHeight = lgMatches
-		? '980'
-		: mdMatches
-		? '800'
-		: smMatches
-		? '680'
-		: '1100'
 
 	const smWidth = lgMatches
 		? '180mm'
@@ -194,11 +180,7 @@ export default function LandingPage() {
 
 	return (
 		<>
-			<div className={classes.wave}>
-				{xsMatches ? null : (
-					<Drawing width={bgWidth} height={bgHeight} />
-				)}
-			</div>
+			<div className={classes.wave}>{xsMatches ? null : <Drawing />}</div>
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
 			<Grid
 				container
@@ -223,12 +205,12 @@ export default function LandingPage() {
 									)}
 								</section>
 								<Typography variant="h2" align="center">
-									You Run The Business, <br />
-									We help you How to Run It.
+									For Investors
 								</Typography>
 								<br />
 								<Typography variant="subtitle1" align="center">
-									Business Management Consultant
+									Encouraging strategic investments into the
+									startup ecosystem.
 								</Typography>
 							</Grid>
 							<Grid
@@ -238,21 +220,7 @@ export default function LandingPage() {
 								className={classes.buttonContainer}
 							>
 								<Grid item>
-									<CustomButton
-										variant="contained"
-										disableElevation
-										text="For Startups"
-										to="/startup"
-									/>
-								</Grid>
-								<Grid item>
-									<CustomButton
-										variant="contained"
-										disableElevation
-										text="For Investor"
-										to="/investor"
-									/>
-									{/* <Button
+									<Button
 										component={Link}
 										to="/learn-more"
 										variant="outlined"
@@ -266,22 +234,76 @@ export default function LandingPage() {
 											height={15}
 											fill={theme.palette.common.blue}
 										/>
-									</Button> */}
+									</Button>
 								</Grid>
 							</Grid>
 						</Grid>
 						<Grid sm item className={classes.hero}>
 							<img
-								src={Hero1}
-								height={'98%'}
-								width={'98%'}
+								src={InvestorHero}
+								height={'80%'}
+								width={'80%'}
 								alt="startupimage"
 							/>
 						</Grid>
 					</Grid>
 				</Grid>
 				{/* --------------------------------------------------------------------------------------------------------------------------- */}
+				<Grid item className={classes.heroItems2}>
+					<Grid container alignItems="center" direction="column">
+						<Grid item>
+							<Typography variant="subtitle2">
+								Our Services
+							</Typography>
+						</Grid>
 
+						<Grid item>
+							<Typography variant="h3">What we do</Typography>
+						</Grid>
+						<Grid item>
+							<hr className={classes.dash} />
+						</Grid>
+					</Grid>
+				</Grid>
+				{/* --------------------------------------------------------------------------------------------------------------------------- */}
+				<Grid item sm>
+					<Grid container justify="center" direction="row">
+						<Service
+							image={bar}
+							title="Corporate Finance"
+							desc="In the tumultuos business of
+					              cutting-in and attending to a
+					            whale, there is much running"
+						/>
+						<Service
+							image={audit}
+							title="Audit & Evaluation"
+							desc="Retro occupy organic, stumptown shabby chich pour-over roof party DIY normore"
+						/>
+						<Service
+							image={market}
+							title="Market Analysis"
+							desc="Ready to analysis your e-product to ready live"
+						/>
+					</Grid>
+				</Grid>
+				{/* --------------------------------------------------------------------------------------------------------------------------- */}
+				<Grid item className={classes.heroItems4} sm>
+					<Grid container justify="center" direction="row">
+						<Service
+							image={tax}
+							title="Tax & Efficiency"
+							desc="In the tumultuos business of
+					              cutting-in and attending to a
+					            whale, there is much running"
+						/>
+						<Service
+							image={sales}
+							title="Sales & Trade"
+							desc="Ready to sales and comfortable with other, ever trade to made you be a billionare"
+						/>
+					</Grid>
+				</Grid>
 				{/* --------------------------------------------HIGHLIGHTS------------------------------------------------------------------------------- */}
 				<Grid item>
 					<Grid container direction="row" justify="center">

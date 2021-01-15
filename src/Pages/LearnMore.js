@@ -8,6 +8,7 @@ import CustomButton from '../components/CustomButton'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 import Startup2 from '../assets/startup2.svg'
+import Investor from '../assets/investor.svg'
 import Arrow from '../components/Arrow'
 
 import { Link } from 'react-router-dom'
@@ -15,15 +16,22 @@ import { Link } from 'react-router-dom'
 const useStyles = makeStyles(theme => ({
 	heroTextContainer: {
 		minWidth: '21.5em',
-		marginLeft: '1em',
 		[theme.breakpoints.down('xs')]: {
 			marginRight: '2em',
+		},
+	},
+	mainContainer: {
+		marginTop: '5em',
+		[theme.breakpoints.down('md')]: {
+			marginTop: '3em',
+		},
+		[theme.breakpoints.down('xs')]: {
+			marginTop: '2em',
 		},
 	},
 	buttonContainer: {
 		marginTop: '1em',
 	},
-
 	learnBtnHero: {
 		borderColor: theme.palette.common.blue,
 		color: theme.palette.common.blue,
@@ -47,8 +55,13 @@ export default function LearnMore() {
 	const classes = useStyles()
 	const theme = useTheme()
 	return (
-		<Grid container direction="column" alignItems="center">
-			<Grid item>
+		<Grid
+			container
+			direction="column"
+			alignItems="center"
+			className={classes.mainContainer}
+		>
+			<Grid item style={{ marginBottom: '5em' }}>
 				<Grid
 					container
 					justify="flex-end"
@@ -122,7 +135,7 @@ export default function LearnMore() {
 				>
 					<Grid sm item className={classes.heroTextContainer}>
 						<img
-							src={Startup2}
+							src={Investor}
 							height={'100%'}
 							width={'100%'}
 							alt="startupimage"
@@ -135,12 +148,12 @@ export default function LearnMore() {
 								align="center"
 								style={{ fontSize: '2rem' }}
 							>
-								For Startups & Founders
+								For Investors
 							</Typography>
 							<br />
 							<Typography variant="subtitle1" align="center">
-								Providing opportunities for mentorship, funding,
-								talent, and infrastructure.
+								Encouraging strategic investments into the
+								startup ecosystem.
 							</Typography>
 						</Grid>
 						<Grid

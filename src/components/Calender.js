@@ -7,6 +7,17 @@ import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles(theme => ({
 	root: {
 		display: 'flex',
+		boxShadow:
+			'0px 1px 3px rgba(0, 0, 0, 0.05), 0px 20px 40px rgba(92, 103, 153, 0.2)',
+		borderRadius: 10,
+		padding: 10,
+		border: '4px solid #fff',
+		backgroundColor: 'rgba(255, 255, 255, 0.1);',
+		transition: 'all .5s',
+		cursor: 'pointer',
+		'&:hover': {
+			transform: 'translateY(-8px)',
+		},
 	},
 	details: {
 		display: 'flex',

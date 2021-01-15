@@ -17,33 +17,24 @@ import {
 	List,
 	ListItem,
 	ListItemText,
-	useScrollTrigger,
 } from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles(theme => ({
 	appbar: {
-		// borderBottom: '1px solid #e3e3e3;',
-		// background: theme.palette.common.blue,
-		// opacity: 0.07,
 		padding: '10px calc(50% - 640px)',
-		zIndex: theme.zIndex.modal + 1,
-	},
-	showBar: {
-		background: '',
-	},
-	hideBar: {
 		background: 'transparent',
 	},
+
 	logo: {
 		height: '3em',
 		[theme.breakpoints.down('md')]: {
 			height: '2em',
 		},
-		[theme.breakpoints.down('xs')]: {
-			height: '1.4em',
-		},
+		// [theme.breakpoints.down('xs')]: {
+		// 	height: '1.4em',
+		// },
 	},
 	logoContainer: {
 		marginLeft: '23px',
@@ -114,7 +105,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	const classes = useStyles()
 	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 	const matches = useMediaQuery(theme.breakpoints.down('sm'))
-	const trigger = useScrollTrigger({ disableHysteresis: true })
+	// const trigger = useScrollTrigger({ disableHysteresis: true })
 
 	const [openDrawer, setOpenDrawer] = useState(false)
 	const handleChange = (e, newValue) => {
@@ -231,8 +222,29 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 				onOpen={() => setOpenDrawer(true)}
 				classes={{ paper: classes.drawer }}
 			>
-				<div className={classes.toolbarMargin} />
+				{/* <div className={classes.toolbarMargin} /> */}
 				<List>
+					<ListItem divider button>
+						<Button
+							component={Link}
+							to="/"
+							disableRipple
+							onClick={() => {
+								setValue(0)
+								setOpenDrawer(false)
+							}}
+							className={classes.logoContainer}
+						>
+							<img
+								src={logo}
+								className={classes.logo}
+								alt="company logo"
+							/>
+							<Typography className={classes.logoName}>
+								bmanepal
+							</Typography>
+						</Button>
+					</ListItem>
 					{routes.map(route => (
 						<ListItem
 							key={`list-${route.id}`}
@@ -305,11 +317,9 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	return (
 		<React.Fragment>
 			<AppBar
-				position="sticky"
+				position="absolute"
 				color="secondary"
-				className={`${classes.appbar} ${
-					trigger || openDrawer ? classes.showBar : classes.hideBar
-				}`}
+				className={classes.appbar}
 				elevation={0}
 			>
 				<Toolbar disableGutters>
