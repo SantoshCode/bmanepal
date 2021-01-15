@@ -1,19 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { Hidden } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-
 import facebook from '../assets/facebook.svg'
-import twitter from '../assets/twitter.svg'
 import instagram from '../assets/instagram.svg'
-import { Hidden } from '@material-ui/core'
+import twitter from '../assets/twitter.svg'
 
 const useStyles = makeStyles(theme => ({
 	footer: {
 		width: '100%',
 		position: 'relative',
-		// zIndex: 1302,
 	},
 	link: {
 		...theme.typography.tab,

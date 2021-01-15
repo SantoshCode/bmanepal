@@ -5,8 +5,6 @@ export default function Drawing2({ width, height }) {
 		<svg
 			width={width}
 			height={height}
-			// width="210mm"
-			// height="297mm"
 			viewBox="0 0 210 297"
 			version="1.1"
 			id="svg8"

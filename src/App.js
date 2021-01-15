@@ -1,18 +1,35 @@
-import React, { useState } from 'react'
 import { ThemeProvider } from '@material-ui/styles'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
-import theme from './Theme'
-import Header from './components/Header'
 import Footer from './components/Footer'
-import LandingPage from './Pages/LandingPage'
+import Header from './components/Header'
 import Investor from './Pages/Investor'
+import LandingPage from './Pages/LandingPage'
 import Startup from './Pages/Startup'
-// import LearnMore from './Pages/LearnMore'
+import theme from './Theme'
 
 function App() {
+	const [isLoading, setLoading] = useState(true)
 	const [value, setValue] = useState(0)
 	const [selectedIndex, setSelectedIndex] = useState(0)
+
+	function fakeRequest() {
+		return new Promise(resolve => setTimeout(() => resolve(), 2500))
+	}
+
+	useEffect(() => {
+		fakeRequest().then(() => {
+			const el = document.querySelector('.loader-container')
+			if (el) {
+				el.remove()
+				setLoading(!isLoading)
+			}
+		})
+	}, [isLoading])
+
+	if (isLoading) {
+		return null
+	}
 
 	return (
 		<ThemeProvider theme={theme}>

@@ -1,32 +1,24 @@
-import React from 'react'
-
-import { Link } from 'react-router-dom'
-
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
+import { useMediaQuery } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-import Arrow from '../components/Arrow'
-
-// import Hero1 from '../assets/temp.svg'
-import bar from '../assets/bar-chart.svg'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import audit from '../assets/audit.svg'
+import bar from '../assets/bar-chart.svg'
+import Drawing from '../assets/drawing.js'
+import Drawing2 from '../assets/drawing2.js'
+import InvestorHero from '../assets/investor.svg'
 import market from '../assets/market.svg'
 import sales from '../assets/sales.svg'
 import tax from '../assets/tax.svg'
-import InvestorHero from '../assets/investor.svg'
-import Drawing from '../assets/drawing.js'
-
-import Drawing2 from '../assets/drawing2.js'
-
-// import CustomButton from '../components/CustomButton'
-import Service from '../components/Service'
-import HighLight from '../components/HighLight'
 import Announcement from '../components/Announcement'
+import Arrow from '../components/Arrow'
 import Calender from '../components/Calender'
-
-import { useMediaQuery } from '@material-ui/core'
+import HighLight from '../components/HighLight'
+import Program from '../components/Program'
+import Service from '../components/Service'
 
 const useStyles = makeStyles(theme => ({
 	hero: {
@@ -178,9 +170,28 @@ export default function Investor() {
 		? '207mm'
 		: '267mm'
 
+	const bgWidth = lgMatches
+		? '1000'
+		: mdMatches
+		? '800'
+		: smMatches
+		? '695'
+		: '1098'
+	const bgHeight = lgMatches
+		? '984'
+		: mdMatches
+		? '800'
+		: smMatches
+		? '680'
+		: '1024'
+
 	return (
 		<>
-			<div className={classes.wave}>{xsMatches ? null : <Drawing />}</div>
+			<div className={classes.wave}>
+				{xsMatches ? null : (
+					<Drawing width={bgWidth} height={bgHeight} />
+				)}
+			</div>
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
 			<Grid
 				container
@@ -304,6 +315,76 @@ export default function Investor() {
 						/>
 					</Grid>
 				</Grid>
+				{/* ----------------------------------------------------------Programmes--------------------------------------- */}
+
+				<Grid item style={{ marginBottom: '5em' }}>
+					<Grid container direction="row" justify="center">
+						<Grid item>
+							<Grid container direction="column">
+								<Grid item>
+									<Typography className={classes.highlight}>
+										Programmes
+									</Typography>
+								</Grid>
+								<Grid item>
+									<Grid container direction="column">
+										<Grid
+											container
+											direction="row"
+											justify="center"
+										>
+											<Grid item>
+												<Program
+													title="Bmanepal Investor"
+													desc="Support for investors looking to invest in the startup
+                                    ecosystem."
+												/>
+											</Grid>
+											<Grid item>
+												<Program
+													title="Bmanepal Equity"
+													desc="Co-investment opportunities for investors that provide funding support for startups."
+												/>
+											</Grid>
+											<Grid item>
+												<Program
+													title="Bmanepal Infrastructure"
+													desc="Infrastructural support for startups, multipliers, and investors."
+												/>
+											</Grid>
+										</Grid>
+										<Grid
+											container
+											direction="row"
+											justify="center"
+										>
+											<Grid item>
+												<Program
+													title="Bmanepal Investor"
+													desc="Support for investors looking to invest in the startup
+                                    ecosystem."
+												/>
+											</Grid>
+											<Grid item>
+												<Program
+													title="Bmanepal Equity"
+													desc="Co-investment opportunities for investors that provide funding support for startups."
+												/>
+											</Grid>
+											<Grid item>
+												<Program
+													title="Bmanepal Infrastructure"
+													desc="Infrastructural support for startups, multipliers, and investors."
+												/>
+											</Grid>
+										</Grid>
+									</Grid>
+								</Grid>
+							</Grid>
+						</Grid>
+					</Grid>
+				</Grid>
+
 				{/* --------------------------------------------HIGHLIGHTS------------------------------------------------------------------------------- */}
 				<Grid item>
 					<Grid container direction="row" justify="center">

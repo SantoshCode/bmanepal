@@ -1,17 +1,13 @@
-import React from 'react'
-
-import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-import CustomButton from '../components/CustomButton'
-
+import Grid from '@material-ui/core/Grid'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-
-import Startup2 from '../assets/startup2.svg'
-import Investor from '../assets/investor.svg'
-import Arrow from '../components/Arrow'
-
+import Typography from '@material-ui/core/Typography'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import Investor from '../assets/investor.svg'
+import Startup2 from '../assets/startup2.svg'
+import Arrow from '../components/Arrow'
+import CustomButton from '../components/CustomButton'
 
 const useStyles = makeStyles(theme => ({
 	heroTextContainer: {

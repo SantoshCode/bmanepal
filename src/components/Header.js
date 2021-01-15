@@ -1,25 +1,23 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Button from '@material-ui/core/Button'
-import CustomButton from './CustomButton'
-import { Link } from 'react-router-dom'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-
-import logo from '../assets/logo.png'
 import {
+	IconButton,
+	List,
+	ListItem,
+	ListItemText,
 	SwipeableDrawer,
 	Tab,
 	Tabs,
 	Typography,
 	useMediaQuery,
-	IconButton,
-	List,
-	ListItem,
-	ListItemText,
 } from '@material-ui/core'
-
+import AppBar from '@material-ui/core/AppBar'
+import Button from '@material-ui/core/Button'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Toolbar from '@material-ui/core/Toolbar'
 import MenuIcon from '@material-ui/icons/Menu'
+import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
+import CustomButton from './CustomButton'
 
 const useStyles = makeStyles(theme => ({
 	appbar: {
@@ -208,6 +206,10 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 				onClick={() => setValue(5)}
 				text="Get Started"
 				variant="contained"
+				style={{
+					boxShadow: 'none',
+					background: 'linear-gradient(145deg, #1b8cd8, #1776b6)',
+				}}
 			/>
 		</React.Fragment>
 	)

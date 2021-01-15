@@ -1,34 +1,21 @@
-import React from 'react'
-
-import { Link } from 'react-router-dom'
-
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
+import { useMediaQuery } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-import Arrow from '../components/Arrow'
-
-// import Hero1 from '../assets/temp.svg'
-import bar from '../assets/bar-chart.svg'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import audit from '../assets/audit.svg'
+import bar from '../assets/bar-chart.svg'
+import Drawing from '../assets/drawing.js'
+import Drawing2 from '../assets/drawing2.js'
 import market from '../assets/market.svg'
 import sales from '../assets/sales.svg'
-import tax from '../assets/tax.svg'
-import Drawing from '../assets/drawing.js'
-
-import Drawing2 from '../assets/drawing2.js'
-
-// import CustomButton from '../components/CustomButton'
-import Service from '../components/Service'
-// import HighLight from '../components/HighLight'
-// import Announcement from '../components/Announcement'
-// import Calender from '../components/Calender'
-
 import Startup2 from '../assets/startup2.svg'
-
-import { useMediaQuery } from '@material-ui/core'
+import tax from '../assets/tax.svg'
+import Arrow from '../components/Arrow'
 import Plan from '../components/Plan'
+import Service from '../components/Service'
 
 const useStyles = makeStyles(theme => ({
 	hero: {
@@ -146,6 +133,21 @@ export default function Startup() {
 	const smMatches = useMediaQuery(theme.breakpoints.only('sm'))
 	const xsMatches = useMediaQuery(theme.breakpoints.down('xs'))
 
+	const bgWidth = lgMatches
+		? '1000'
+		: mdMatches
+		? '800'
+		: smMatches
+		? '695'
+		: '1098'
+	const bgHeight = lgMatches
+		? '984'
+		: mdMatches
+		? '800'
+		: smMatches
+		? '680'
+		: '1024'
+
 	const smWidth = lgMatches
 		? '180mm'
 		: mdMatches
@@ -163,7 +165,11 @@ export default function Startup() {
 
 	return (
 		<>
-			<div className={classes.wave}>{xsMatches ? null : <Drawing />}</div>
+			<div className={classes.wave}>
+				{xsMatches ? null : (
+					<Drawing width={bgWidth} height={bgHeight} />
+				)}
+			</div>
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
 			<Grid
 				container
@@ -315,11 +321,11 @@ export default function Startup() {
 								title="Basic"
 								price="5000"
 								items={[
-									'Custom Fields',
-									'Web Form',
-									'WorkFlow',
-									'Report and Dashboard',
-									'Roles and Policies',
+									'Incorporation',
+									'Business Plan',
+									'Financial Feasibility',
+									"Investor's Pitch",
+									'Investor Hunt',
 								]}
 							/>
 						</Grid>
@@ -328,11 +334,11 @@ export default function Startup() {
 								title="Standard"
 								price="7000"
 								items={[
-									'Scoring Rules',
-									'Email Insights',
-									'WorkFlow Conversion',
-									'Custom, Unique Fonts',
-									'10,000 Records',
+									'Incorporation',
+									'Business Plan',
+									'Financial Feasibility',
+									"Investor's Pitch",
+									'Investor Hunt',
 								]}
 							/>
 						</Grid>
@@ -341,11 +347,11 @@ export default function Startup() {
 								title="Professional"
 								price="12000"
 								items={[
-									'SalesSignals - Real-time',
-									'BluePrints - Process Management',
-									'Macros',
-									'Validatoin Rules',
-									'Webhooks',
+									'Incorporation',
+									'Business Plan',
+									'Financial Feasibility',
+									"Investor's Pitch",
+									'Investor Hunt',
 								]}
 							/>
 						</Grid>

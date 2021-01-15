@@ -1,31 +1,17 @@
-import React from 'react'
-
-// import { Link } from 'react-router-dom'
-
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { useMediaQuery } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
-// import Button from '@material-ui/core/Button'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-// import Arrow from '../components/Arrow'
-
-import Hero1 from '../assets/temp.svg'
-// import bar from '../assets/bar-chart.svg'
-// import audit from '../assets/audit.svg'
-// import market from '../assets/market.svg'
-// import sales from '../assets/sales.svg'
-// import tax from '../assets/tax.svg'
+import React from 'react'
 import Drawing from '../assets/drawing.js'
-
 import Drawing2 from '../assets/drawing2.js'
-
-import CustomButton from '../components/CustomButton'
-// import Service from '../components/Service'
-import HighLight from '../components/HighLight'
+import manInvestor from '../assets/manInvestor.svg'
+import rocket from '../assets/rocket.svg'
+import Hero1 from '../assets/temp.svg'
 import Announcement from '../components/Announcement'
 import Calender from '../components/Calender'
-
-import { useMediaQuery } from '@material-ui/core'
+import CustomButton from '../components/CustomButton'
+import HighLight from '../components/HighLight'
 
 const useStyles = makeStyles(theme => ({
 	hero: {
@@ -36,8 +22,8 @@ const useStyles = makeStyles(theme => ({
 		marginTop: '4em',
 		marginLeft: '10%',
 		'&>img': {
-			width: '98%',
-			height: '98%',
+			width: '80%',
+			height: '80%',
 			[theme.breakpoints.down('xs')]: {
 				// margin: 'auto',
 				padding: '0 68px',
@@ -163,19 +149,19 @@ export default function LandingPage() {
 	const xsMatches = useMediaQuery(theme.breakpoints.down('xs'))
 
 	const bgWidth = lgMatches
-		? '980'
+		? '1000'
 		: mdMatches
 		? '800'
 		: smMatches
 		? '695'
-		: '1100'
+		: '1098'
 	const bgHeight = lgMatches
-		? '980'
+		? '984'
 		: mdMatches
 		? '800'
 		: smMatches
 		? '680'
-		: '1100'
+		: '1024'
 
 	const smWidth = lgMatches
 		? '180mm'
@@ -243,6 +229,7 @@ export default function LandingPage() {
 										disableElevation
 										text="For Startups"
 										to="/startup"
+										icon={rocket}
 									/>
 								</Grid>
 								<Grid item>
@@ -251,6 +238,7 @@ export default function LandingPage() {
 										disableElevation
 										text="For Investor"
 										to="/investor"
+										icon={manInvestor}
 									/>
 									{/* <Button
 										component={Link}
@@ -281,7 +269,8 @@ export default function LandingPage() {
 					</Grid>
 				</Grid>
 				{/* --------------------------------------------------------------------------------------------------------------------------- */}
-
+				<br />
+				<br />
 				{/* --------------------------------------------HIGHLIGHTS------------------------------------------------------------------------------- */}
 				<Grid item>
 					<Grid container direction="row" justify="center">

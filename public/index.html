@@ -14,10 +14,34 @@
 			href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@100;400;700&display=swap"
 			rel="stylesheet"
 		/>
+		<style>
+			.loader {
+				border: 16px solid #f3f3f3;
+				border-top: 16px solid #3498db;
+				border-radius: 50%;
+				width: 130px;
+				height: 130px;
+				animation: spin 2s linear infinite;
+				/* height: 100vh; */
+				margin: 35vh auto;
+			}
+
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+		</style>
 		<title>Bmanepal</title>
 	</head>
 	<body style="margin: 0">
 		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div class="loader-container">
+			<div class="loader"></div>
+		</div>
 		<div id="root"></div>
 	</body>
 </html>
