@@ -5,14 +5,14 @@ import logo from '../assets/logo.png'
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		margin: '0px 10px',
+		margin: 13,
 		padding: 10,
 		maxWidth: 490,
 		width: 345,
+		height: 210,
 		marginTop: '1em',
 		[theme.breakpoints.down('md')]: {
 			width: 270,
-			// marginTop: '4em',
 		},
 		[theme.breakpoints.down('sm')]: {
 			width: 450,
@@ -24,12 +24,13 @@ const useStyles = makeStyles(theme => ({
 		},
 		// height: 500,
 		textAlign: 'center',
-		backgroundColor: 'rgba(255, 255, 255, 0.9);',
-		boxShadow:
-			'0px 1px 3px rgba(0, 0, 0, 0.05), 0px 20px 40px rgba(92, 103, 153, 0.2)',
+		background: '#DEF3FA',
+		// boxShadow: ' 20px 20px 35px #ced9d9, -20px -20px 35px #ffffff',
+		// border: `10px solid white`,
+
 		borderRadius: 10,
 		transition: 'all .5s',
-		// cursor: 'pointer',
+		cursor: 'pointer',
 		'&:hover': {
 			transform: 'translateY(-8px)',
 		},
@@ -37,18 +38,23 @@ const useStyles = makeStyles(theme => ({
 	logo: {
 		// height: 100,
 		// width: 100,
-		padding: 20,
+		padding: 2,
+		// border: '1px solid red',
+	},
+	logoImg: {
+		padding: 10,
+		boxShadow: ' 20px 20px 35px #ced9d9, -20px -20px 35px #ffffff',
+		borderRadius: 50,
 	},
 	title: {
-		fontFamily: 'Raleway',
-		fontWeight: 700,
-		fontSize: '20px',
-		letterSpacing: 1,
-		color: '#161e2e',
+		...theme.typography.h2,
+		fontSize: '1.3rem',
 		padding: '5px 10px',
+		letterSpacing: 1,
 	},
 	desc: {
-		fontFamily: 'Raleway',
+		fontFamily: 'Open Sans',
+		// fontWeight: '500',
 		fontSize: '16px',
 		padding: 10,
 	},
@@ -60,7 +66,13 @@ export default function Program({ title, desc }) {
 	return (
 		<Card className={classes.root} elevation={0}>
 			<div className={classes.logo}>
-				<img src={logo} alt="" height={'50px'} width={'50px'} />
+				<img
+					className={classes.logoImg}
+					src={logo}
+					alt=""
+					height={'50px'}
+					width={'50px'}
+				/>
 			</div>
 			<div className={classes.title}>{title}</div>
 			<div className={classes.desc}>{desc}</div>

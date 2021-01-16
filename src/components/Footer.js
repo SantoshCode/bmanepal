@@ -89,6 +89,10 @@ export default function Footer({
 											component={Link}
 											to="/about"
 											className={classes.link}
+											onClick={() => {
+												setValue(1)
+												setSelectedIndex(1)
+											}}
 										>
 											About Us
 										</Grid>
@@ -99,6 +103,18 @@ export default function Footer({
 											to="/contact"
 										>
 											Contact Us
+										</Grid>
+										<Grid
+											item
+											component={Link}
+											className={classes.link}
+											to="/case-studies"
+											onClick={() => {
+												setValue(5)
+												setSelectedIndex(5)
+											}}
+										>
+											Case Studies
 										</Grid>
 									</Grid>
 								</Grid>
@@ -120,25 +136,25 @@ export default function Footer({
 											item
 											component={Link}
 											className={classes.link}
-											to="/start-a-company"
-											onClick={() => {
-												setValue(1)
-												setSelectedIndex(1)
-											}}
-										>
-											Start a Company
-										</Grid>
-										<Grid
-											item
-											component={Link}
-											className={classes.link}
-											to="/grow-your-startup"
+											to="/invest"
 											onClick={() => {
 												setValue(2)
 												setSelectedIndex(2)
 											}}
 										>
-											Grow Your Startup
+											Invest
+										</Grid>
+										<Grid
+											item
+											component={Link}
+											className={classes.link}
+											to="/get-funded"
+											onClick={() => {
+												setValue(3)
+												setSelectedIndex(3)
+											}}
+										>
+											Get Funded
 										</Grid>
 										<Grid
 											item

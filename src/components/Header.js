@@ -1,4 +1,3 @@
-import React, { useEffect, useMemo, useState } from 'react'
 import {
 	IconButton,
 	List,
@@ -15,6 +14,7 @@ import Button from '@material-ui/core/Button'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import MenuIcon from '@material-ui/icons/Menu'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import CustomButton from './CustomButton'
@@ -24,15 +24,11 @@ const useStyles = makeStyles(theme => ({
 		padding: '10px calc(50% - 640px)',
 		background: 'transparent',
 	},
-
 	logo: {
 		height: '3em',
 		[theme.breakpoints.down('md')]: {
 			height: '2em',
 		},
-		// [theme.breakpoints.down('xs')]: {
-		// 	height: '1.4em',
-		// },
 	},
 	logoContainer: {
 		marginLeft: '23px',
@@ -62,7 +58,7 @@ const useStyles = makeStyles(theme => ({
 			backgroundColor: 'transparent',
 		},
 	},
-	leave: {
+	noDisplay: {
 		display: 'none',
 	},
 	drawerIconContainer: {
@@ -102,7 +98,8 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	const theme = useTheme()
 	const classes = useStyles()
 	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
-	const matches = useMediaQuery(theme.breakpoints.down('sm'))
+	const smMatches = useMediaQuery(theme.breakpoints.down('sm'))
+	const mdMatches = useMediaQuery(theme.breakpoints.down('md'))
 	// const trigger = useScrollTrigger({ disableHysteresis: true })
 
 	const [openDrawer, setOpenDrawer] = useState(false)
@@ -113,31 +110,50 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 	const routes = useMemo(
 		() => [
 			{
-				id: 'r2',
-				name: 'Start a Company',
-				link: '/start-a-company',
+				id: 'r1',
+				name: 'About',
+				link: '/about',
 				activeIndex: 1,
 			},
 			{
-				id: 'r3',
-				name: 'Grow Your Startup',
-				link: '/grow-your-startup',
+				id: 'r2',
+				name: 'Invest',
+				link: '/invest',
 				activeIndex: 2,
 			},
 			{
-				id: 'r4',
-				name: 'Raise Capital',
-				link: '/raise-capital',
+				id: 'r3',
+				name: 'Get Funded',
+				link: '/get-funded',
 				activeIndex: 3,
 			},
-			// { id: 'r5', name: 'Sign In', link: '/sign-in', activeIndex: 4 },
-			// { id: 'r5', name: 'Sign In', link: '/start', activeIndex: 5 },
+			{
+				id: 'r4',
+				name: 'News/Events',
+				link: '/news-events',
+				activeIndex: 4,
+			},
+			{
+				id: 'r5',
+				name: 'Case Studies',
+				link: '/case-studies',
+				activeIndex: 5,
+			},
 		],
 		[]
 	)
 
 	useEffect(() => {
-		routes.forEach(route => {
+		;[
+			...routes,
+			{ id: 'r5', name: 'Sign In', link: '/sign-in', activeIndex: 6 },
+			{
+				id: 'r5',
+				name: 'Get Started',
+				link: '/start',
+				activeIndex: 7,
+			},
+		].forEach(route => {
 			switch (window.location.pathname) {
 				case `${route.link}`:
 					if (value !== route.activeIndex) {
@@ -164,38 +180,51 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 				className={classes.tabContainer}
 				indicatorColor="secondary"
 			>
-				<Tab className={classes.leave} value={0} />
+				<Tab className={classes.noDisplay} value={0} />
 				<Tab
 					className={classes.tab}
 					component={Link}
-					label="Start a Company"
-					to="/start-a-company"
+					label="About"
+					to="/about"
 					value={1}
 				/>
 				<Tab
 					className={classes.tab}
 					component={Link}
-					label="Grow Your Startup"
-					to="/grow-your-startup"
+					label="Invest"
+					to="/invest"
 					value={2}
 				/>
-
 				<Tab
 					className={classes.tab}
 					component={Link}
-					label="Raise Capital"
-					to="/raise-capital"
+					label="Get Funded"
+					to="/get-funded"
 					value={3}
 				/>
-				<Tab className={classes.leave} value={4} />
-				<Tab className={classes.leave} value={5} />
+				<Tab
+					className={classes.tab}
+					component={Link}
+					label="News/Events"
+					to="/news-events"
+					value={4}
+				/>
+				<Tab
+					className={classes.tab}
+					component={Link}
+					label="Case Studies"
+					to="/case-studies"
+					value={5}
+				/>
+				<Tab className={classes.noDisplay} value={6} />
+				<Tab className={classes.noDisplay} value={7} />
 			</Tabs>
 			<Button
 				component={Link}
 				to="/sign-in"
 				variant="text"
 				className={classes.button2}
-				onClick={() => setValue(4)}
+				onClick={() => setValue(6)}
 				style={{ color: '#333' }}
 			>
 				Sign In
@@ -203,12 +232,15 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 			<CustomButton
 				component={Link}
 				to="/start"
-				onClick={() => setValue(5)}
+				onClick={() => setValue(7)}
 				text="Get Started"
 				variant="contained"
 				style={{
 					boxShadow: 'none',
 					background: 'linear-gradient(145deg, #1b8cd8, #1776b6)',
+					margin: mdMatches ? 0 : '0px 1em',
+					padding: 0,
+					width: 180,
 				}}
 			/>
 		</React.Fragment>
@@ -280,16 +312,16 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 							root: classes.drawerItemEstimate,
 							selected: classes.drawerItemSelected,
 						}}
-						selected={value === 4}
+						selected={value === 6}
 						component={Link}
-						to="/sing-in"
+						to="/sign-in"
 					>
 						<Button className={classes.button2}>Sign in</Button>
 					</ListItem>
 					<ListItem
 						onClick={() => {
 							setOpenDrawer(false)
-							setValue(5)
+							setValue(7)
 						}}
 						divider
 						button
@@ -297,7 +329,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 							root: classes.drawerItemEstimate,
 							selected: classes.drawerItemSelected,
 						}}
-						selected={value === 5}
+						selected={value === 7}
 						component={Link}
 						to="/start"
 					>
@@ -325,7 +357,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 				elevation={0}
 			>
 				<Toolbar disableGutters>
-					{matches ? (
+					{smMatches ? (
 						<IconButton
 							className={classes.drawerIconContainer}
 							onClick={() => setOpenDrawer(!openDrawer)}
@@ -350,7 +382,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
 							bmanepal
 						</Typography>
 					</Button>
-					{matches ? drawer : tabs}
+					{smMatches ? drawer : tabs}
 				</Toolbar>
 			</AppBar>
 			<div className={classes.toolbarMargin} />

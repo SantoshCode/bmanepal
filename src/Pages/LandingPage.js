@@ -3,11 +3,11 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
-import Drawing from '../assets/drawing.js'
-import Drawing2 from '../assets/drawing2.js'
+import SideBlob from '../assets/SideBlob.js'
+import SideBubble from '../assets/SideBubble.js'
 import manInvestor from '../assets/manInvestor.svg'
 import rocket from '../assets/rocket.svg'
-import Hero1 from '../assets/temp.svg'
+import LandingHeroImage from '../assets/landing-page-hero.svg'
 import Announcement from '../components/Announcement'
 import Calender from '../components/Calender'
 import CustomButton from '../components/CustomButton'
@@ -182,7 +182,7 @@ export default function LandingPage() {
 		<>
 			<div className={classes.wave}>
 				{xsMatches ? null : (
-					<Drawing width={bgWidth} height={bgHeight} />
+					<SideBlob width={bgWidth} height={bgHeight} />
 				)}
 			</div>
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
@@ -202,7 +202,7 @@ export default function LandingPage() {
 							<Grid container direction="column">
 								<section className={classes.wave2}>
 									{xsMatches ? null : (
-										<Drawing2
+										<SideBubble
 											width={smWidth}
 											height={smHeight}
 										/>
@@ -240,27 +240,12 @@ export default function LandingPage() {
 										to="/investor"
 										icon={manInvestor}
 									/>
-									{/* <Button
-										component={Link}
-										to="/learn-more"
-										variant="outlined"
-										className={classes.learnBtnHero}
-									>
-										<span style={{ marginRight: 10 }}>
-											Learn More
-										</span>
-										<Arrow
-											width={15}
-											height={15}
-											fill={theme.palette.common.blue}
-										/>
-									</Button> */}
 								</Grid>
 							</Grid>
 						</Grid>
 						<Grid sm item className={classes.hero}>
 							<img
-								src={Hero1}
+								src={LandingHeroImage}
 								height={'98%'}
 								width={'98%'}
 								alt="startupimage"
@@ -271,6 +256,22 @@ export default function LandingPage() {
 				{/* --------------------------------------------------------------------------------------------------------------------------- */}
 				<br />
 				<br />
+				<Grid item className={classes.heroItems2}>
+					<Grid container alignItems="center" direction="column">
+						<Grid item>
+							<Typography variant="subtitle2">
+								Whats New?
+							</Typography>
+						</Grid>
+
+						<Grid item>
+							<Typography variant="h3">News & Events</Typography>
+						</Grid>
+						<Grid item>
+							<hr className={classes.dash} />
+						</Grid>
+					</Grid>
+				</Grid>
 				{/* --------------------------------------------HIGHLIGHTS------------------------------------------------------------------------------- */}
 				<Grid item>
 					<Grid container direction="row" justify="center">

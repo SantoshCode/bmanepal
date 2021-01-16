@@ -1,7 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
 const bBlue = '#1983CA'
-const bWhite = '#ffffff'
+const bWhite = '#F2FFFF'
 const bGreen = '#004E61'
 
 export default createMuiTheme({
@@ -31,7 +31,7 @@ export default createMuiTheme({
 			textTransform: 'none',
 			fontWeight: 600,
 			fontSize: '15px',
-			color: '#6e6e6e',
+			color: '#4e4e4e',
 			padding: '8px',
 		},
 		h2: {

@@ -7,11 +7,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import audit from '../assets/audit.svg'
 import bar from '../assets/bar-chart.svg'
-import Drawing from '../assets/drawing.js'
-import Drawing2 from '../assets/drawing2.js'
+import SideBlob from '../assets/SideBlob.js'
+import SideBubble from '../assets/SideBubble.js'
 import market from '../assets/market.svg'
 import sales from '../assets/sales.svg'
-import Startup2 from '../assets/startup2.svg'
+import StartupSideImage from '../assets/startup-hero.svg'
 import tax from '../assets/tax.svg'
 import Arrow from '../components/Arrow'
 import Plan from '../components/Plan'
@@ -79,7 +79,6 @@ const useStyles = makeStyles(theme => ({
 			opacity: 0.1,
 		},
 	},
-
 	wave2: {
 		position: 'absolute',
 		top: 500,
@@ -167,9 +166,10 @@ export default function Startup() {
 		<>
 			<div className={classes.wave}>
 				{xsMatches ? null : (
-					<Drawing width={bgWidth} height={bgHeight} />
+					<SideBlob width={bgWidth} height={bgHeight} />
 				)}
 			</div>
+
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
 			<Grid
 				container
@@ -187,7 +187,7 @@ export default function Startup() {
 							<Grid container direction="column">
 								<section className={classes.wave2}>
 									{xsMatches ? null : (
-										<Drawing2
+										<SideBubble
 											width={smWidth}
 											height={smHeight}
 										/>
@@ -228,7 +228,7 @@ export default function Startup() {
 							</Grid>
 						</Grid>
 						<Grid sm item className={classes.hero}>
-							<img src={Startup2} alt="startupimage" />
+							<img src={StartupSideImage} alt="startupimage" />
 						</Grid>
 					</Grid>
 				</Grid>

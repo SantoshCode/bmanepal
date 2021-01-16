@@ -7,8 +7,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import audit from '../assets/audit.svg'
 import bar from '../assets/bar-chart.svg'
-import Drawing from '../assets/drawing.js'
-import Drawing2 from '../assets/drawing2.js'
+import SideBlob from '../assets/SideBlob.js'
+import SideBubble from '../assets/SideBubble.js'
 import InvestorHero from '../assets/investor.svg'
 import market from '../assets/market.svg'
 import sales from '../assets/sales.svg'
@@ -75,7 +75,7 @@ const useStyles = makeStyles(theme => ({
 		right: 0,
 		margin: 0,
 		padding: 0,
-		// opacity: 0.2,
+		opacity: 0.7,
 		zIndex: -1,
 		[theme.breakpoints.down('md')]: {
 			opacity: 0.3,
@@ -189,7 +189,7 @@ export default function Investor() {
 		<>
 			<div className={classes.wave}>
 				{xsMatches ? null : (
-					<Drawing width={bgWidth} height={bgHeight} />
+					<SideBlob width={bgWidth} height={bgHeight} />
 				)}
 			</div>
 			{/* --------------------------------------------------------------------------------------------------------------------------- */}
@@ -209,7 +209,7 @@ export default function Investor() {
 							<Grid container direction="column">
 								<section className={classes.wave2}>
 									{xsMatches ? null : (
-										<Drawing2
+										<SideBubble
 											width={smWidth}
 											height={smHeight}
 										/>

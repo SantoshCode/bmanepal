@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Drawing2({ width, height }) {
+export default function SideBubble({ width, height }) {
 	return (
 		<svg
 			width={width}
