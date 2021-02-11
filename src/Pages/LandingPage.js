@@ -76,13 +76,13 @@ const useStyles = makeStyles(theme => ({
 	},
 	wave2: {
 		position: 'absolute',
-		top: 500,
+		top: 250,
 		left: 0,
 		margin: 0,
 		padding: 0,
-		opacity: 0.7,
+		opacity: 1,
 		[theme.breakpoints.down('md')]: {
-			opacity: 0.3,
+			opacity: 0.6,
 		},
 		zIndex: -1,
 	},
